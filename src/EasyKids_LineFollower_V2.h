@@ -49,8 +49,8 @@ void Motor_L(int speed)
   // Max speed = 255
   if (!speed)
   {
-    analogWrite(PWM_L1, 255);
-    analogWrite(PWM_L2, 255);
+    analogWrite(PWM_L1, 0);
+    analogWrite(PWM_L2, 0);
   }
   else if(speed > 0)
   {
@@ -74,8 +74,8 @@ void Motor_R(int speed)
   // Max speed = 255
   if (!speed)
   {
-    analogWrite(PWM_R1, 255);
-    analogWrite(PWM_R2, 255);
+    analogWrite(PWM_R1, 0);
+    analogWrite(PWM_R2, 0);
   }
   else if(speed > 0)
   {
@@ -410,7 +410,7 @@ void lineTurnLeft(int MED_SPEED) // Second or third leftest sensor
   }
   else
   {
-    while (digitalRead(sensorArr[2]) && digitalRead(sensorArr[5])) 
+    while (digitalRead(sensorArr[2]) && digitalRead(sensorArr[3])) 
     {
       Motor_R(MED_SPEED);
       Motor_L(-MED_SPEED);
