@@ -2,18 +2,18 @@
 #include <Arduino.h>
 #include <Servo.h>
 
-const static int IN1_L = 18;
-const static int IN2_L = 19;
-const static int EN_L =  3;
+static const int IN1_L = 18;
+static const int IN2_L = 19;
+static const int EN_L =  3;
 
-const static int IN1_R = 10;
-const static int IN2_R = 17;
-const static int EN_R = 11;
+static const int IN1_R = 10;
+static const int IN2_R = 17;
+static const int EN_R = 11;
 
-const static int EDF_PIN =  9;
-const static int START_SW =  2;
+static const int EDF_PIN =  9;
+static const int START_SW =  2;
 
-const static int OUT_LINE = 16;
+static const int OUT_LINE = 16;
 
 static enum OutState 
 {
@@ -22,7 +22,7 @@ static enum OutState
   LEFT
 } out_state = CENTER;
 
-const static int sensorArr[11] = { A7, 4, 5, 6, 7, 8, 12, 14, 15, 16, A6 };
+static const int sensorArr[11] = { A7, 4, 5, 6, 7, 8, 12, 14, 15, 16, A6 };
 static bool invertedLine = false;
 static Servo edf;
 
@@ -227,8 +227,8 @@ void pidLine(int MED_SPEED, int MAX_SPEED, float KP, float KI, float KD)
   KP *= 10;
   KI *= 10;
   KD *= 10;
-  int current_error = readError();
 
+  int current_error = readError();
   if (current_error == OUT_LINE)
   {
     switch (out_state)
@@ -272,6 +272,7 @@ void pidLine(int MED_SPEED, int MAX_SPEED, float KP, float KI, float KD)
 
   Motor_L(speed_1);
   Motor_R(speed_2);
+  
 }
 
 void lineTimer(int MED_SPEED, int MAX_SPEED, float KP, float KI, float KD, long timer)
