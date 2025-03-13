@@ -295,6 +295,11 @@ void lineCross(int MED_SPEED, int MAX_SPEED, float KP, float KI, float KD) // 00
   int ss7 = invertedLine ? !digitalRead(sensorArr[7]) : digitalRead(sensorArr[7]); // Sensor 7
   while(ss3 || ss4 || ss5 || ss6 || ss7)
   {
+     ss3 = invertedLine ? !digitalRead(sensorArr[3]) : digitalRead(sensorArr[3]); // Sensor 3
+     ss4 = invertedLine ? !digitalRead(sensorArr[4]) : digitalRead(sensorArr[4]); // Sensor 4
+     ss5 = invertedLine ? !digitalRead(sensorArr[5]) : digitalRead(sensorArr[5]); // Sensor 5
+     ss6 = invertedLine ? !digitalRead(sensorArr[6]) : digitalRead(sensorArr[6]); // Sensor 6
+     ss7 = invertedLine ? !digitalRead(sensorArr[7]) : digitalRead(sensorArr[7]); // Sensor 7
     pidLine(MED_SPEED, MAX_SPEED, KP, KI, KD);
   }
 
@@ -312,6 +317,8 @@ void line90Left(int MED_SPEED, int MAX_SPEED, float KP, float KI, float KD) // 0
   int ss5 = invertedLine ? !digitalRead(sensorArr[5]) : digitalRead(sensorArr[5]); // Sensor 5
   while(ss2 || ss5)
   {
+    ss2 = invertedLine ? !digitalRead(sensorArr[2]) : digitalRead(sensorArr[2]); // Sensor 2
+    ss5 = invertedLine ? !digitalRead(sensorArr[5]) : digitalRead(sensorArr[5]); // Sensor 5
     pidLine(MED_SPEED, MAX_SPEED, KP, KI, KD);
   }
 
@@ -329,6 +336,8 @@ void line90Right(int MED_SPEED, int MAX_SPEED, float KP, float KI, float KD) // 
   int ss8 = invertedLine ? !digitalRead(sensorArr[8]) : digitalRead(sensorArr[8]); // Sensor 8
   while(ss5 || ss8)
   {
+    ss5 = invertedLine ? !digitalRead(sensorArr[5]) : digitalRead(sensorArr[5]); // Sensor 5
+    ss8 = invertedLine ? !digitalRead(sensorArr[8]) : digitalRead(sensorArr[8]); // Sensor 8
     pidLine(MED_SPEED, MAX_SPEED, KP, KI, KD);
   }
 
@@ -350,6 +359,8 @@ void lineTurnLeft(int MED_SPEED) // Second or third leftest sensor
   int ss3 = invertedLine ? !digitalRead(sensorArr[3]) : digitalRead(sensorArr[3]); // Sensor 3
   while(ss2 || ss3)
   {
+    ss2 = invertedLine ? !digitalRead(sensorArr[2]) : digitalRead(sensorArr[2]); // Sensor 2
+    ss3 = invertedLine ? !digitalRead(sensorArr[3]) : digitalRead(sensorArr[3]); // Sensor 3
     Motor_R(MED_SPEED);
     Motor_L(-MED_SPEED);
   }
@@ -367,8 +378,10 @@ void lineTurnRight(int MED_SPEED) // Second or third rightest sensor
   int ss8 = invertedLine ? !digitalRead(sensorArr[8]) : digitalRead(sensorArr[8]); // Sensor 8
   while(ss7 || ss8)
   {
+    ss7 = invertedLine ? !digitalRead(sensorArr[7]) : digitalRead(sensorArr[7]); // Sensor 7
+    ss8 = invertedLine ? !digitalRead(sensorArr[8]) : digitalRead(sensorArr[8]); // Sensor 8
     Motor_R(-MED_SPEED);
-      Motor_L(MED_SPEED);
+    Motor_L(MED_SPEED);
   }
   Motor_L(0);
   Motor_R(0);
