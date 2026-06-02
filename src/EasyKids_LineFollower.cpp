@@ -144,6 +144,7 @@ void whiteLine()
 static int checkSensor(int pin)
 {
   return (analogRead(pin) > 200) ? 1 : 0;
+  delay(200);
 }
 
 void readSensor()
